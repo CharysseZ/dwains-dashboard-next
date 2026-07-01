@@ -1264,7 +1264,7 @@ export class DwainsDevicesCard extends LitElement {
 
         ${this._renderEnergyStatisticsGraph(
           this._energyStatisticsEntities(area.entities, 6),
-          `${area.name} power history`
+          `${area.name} 用电历史`
         )}
 
         <div class="energy-entity-list">

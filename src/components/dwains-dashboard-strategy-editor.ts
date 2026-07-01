@@ -748,15 +748,15 @@ export class DwainsDashboardStrategyEditor extends LitElement {
     if (!this._dashboardId) {
       return this._renderSettingsPanel(
         "mdi:view-dashboard",
-        "Dashboard",
-        "The default Home Assistant dashboard name cannot be edited here.",
-        html`<div class="empty-settings-card">Open a Dwains Dashboard instance to edit its name and sidebar icon.</div>`
+        "仪表盘",
+        "默认的Home Assistant仪表盘名称无法在此编辑。",
+        html`<div class="empty-settings-card">打开Dwains Dashboard实例以编辑其名称和侧边栏图标。</div>`
       );
     }
 
     return this._renderSettingsPanel(
       "mdi:view-dashboard",
-      "Dashboard",
+      "仪表盘",
       this._t('strategy.dashboard_desc'),
       html`
         <div class="dashboard-settings">
@@ -783,8 +783,8 @@ export class DwainsDashboardStrategyEditor extends LitElement {
   private _renderHomeLayoutSettingsPanel() {
     return this._renderSettingsPanel(
       "mdi:home-edit-outline",
-      "Home layout",
-      "Choose the order of the home page sections. Summaries show active Home Assistant repairs, updates and discovered devices.",
+      "首页布局",
+      "选择首页各个部分的顺序。摘要显示活跃的Home Assistant维修、更新和发现的设备。",
       html`
         ${this._renderHomeSectionOrder()}
         ${this._renderHomeInformationCardSettings()}
@@ -795,8 +795,8 @@ export class DwainsDashboardStrategyEditor extends LitElement {
   private _renderReplacementsSettingsPanel() {
     return this._renderSettingsPanel(
       "mdi:puzzle-edit-outline",
-      "Blueprint replacements",
-      "Replace standard entity cards in area and devices views with replace-card blueprints.",
+      "蓝图替换",
+      "使用replace-card蓝图替换区域和设备视图中的标准实体卡片。",
       html`
         <div class="replacement-section">
           <div class="replacement-summary">
@@ -933,8 +933,8 @@ export class DwainsDashboardStrategyEditor extends LitElement {
   private _renderAlarmSettingsPanel() {
     return this._renderSettingsPanel(
       "mdi:shield-home-outline",
-      "Alarm",
-      "Choose which alarm entity to show on the home page. If no alarm is selected, the alarm chip will be hidden.",
+      "警报",
+      "选择在首页显示哪个警报实体。如果未选择警报，则警报芯片将被隐藏。",
       html`
         <div class="alarm-section">
           <div class="alarm-picker">
@@ -996,23 +996,23 @@ export class DwainsDashboardStrategyEditor extends LitElement {
   private _renderPermissionsSettingsPanel() {
     return this._renderSettingsPanel(
       "mdi:shield-account",
-      "User permissions",
-      "Optional restrictions for Home Assistant users without administrator rights.",
+      "用户权限",
+      "为没有管理员权限的Home Assistant用户设置可选限制。",
       html`
         <div class="entity-display-section">
           <div class="hide-unavailable-toggle">
-            <ha-formfield label="Restrict Home Assistant menu for non-admin users">
+            <ha-formfield label="限制非管理员用户访问Home Assistant菜单">
               <ha-switch
                 .checked=${this._config?.settings?.restrict_non_admin_ha_sidebar === true}
                 @change=${this._toggleRestrictNonAdminHaSidebar}
               ></ha-switch>
             </ha-formfield>
             <p class="toggle-description">
-              When enabled, non-admin users will not see the Home Assistant sidebar/menu from this dashboard. The mobile menu only shows their own profile settings.
+              启用后，非管理员用户将无法从仪表板看到Home Assistant侧边栏/菜单。移动菜单仅显示他们自己的配置设置。
             </p>
           </div>
           <div class="hide-unavailable-toggle">
-            <ha-formfield label="Restrict Dwains Dashboard editing for non-admin users">
+            <ha-formfield label="限制非管理员用户编辑Dwains Dashboard">
               <ha-switch
                 .checked=${this._config?.settings?.restrict_non_admin_dashboard_settings === true}
                 @change=${this._toggleRestrictNonAdminDashboardSettings}
@@ -1200,11 +1200,11 @@ export class DwainsDashboardStrategyEditor extends LitElement {
           <ha-svg-icon .path=${mdiThermometerWater} class="area-help-icon"></ha-svg-icon>
           <div class="area-help-text">
             <p>
-              To show temperature and humidity sensors in the overview, link a sensor to this room in Home Assistant via
-              <button class="link" @click=${this._editAreaRegistry}>edit the room</button>.
+              要在概览中显示温度和湿度传感器，请通过
+              <button class="link" @click=${this._editAreaRegistry}>编辑房间</button>在Home Assistant中将传感器链接到该房间。
             </p>
             <p>
-              The wattage badge automatically sums all power sensors (unit 'W') in this room that are visible (not hidden in the UI).
+              用电徽章会自动汇总此房间中所有可见（未在UI中隐藏）的功率传感器（单位'W'）。
             </p>
           </div>
         </div>

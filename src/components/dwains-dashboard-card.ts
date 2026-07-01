@@ -257,7 +257,7 @@ export class DwainsDashboardCard extends LitElement {
     if (this._isLoading || !this._dashboardConfig) {
       return html`
         <div style="display: flex; justify-content: center; align-items: center; height: 200px; font-size: 18px;">
-          Loading Dwains Dashboard...
+          正在加载Dwains Dashboard...
         </div>
       `;
     }

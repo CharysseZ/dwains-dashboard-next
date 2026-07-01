@@ -10027,7 +10027,7 @@ export class DwainsLayoutCard extends LitElement {
             ? html`
                 <div class="notifications-loading">
                   <ha-icon icon="mdi:loading"></ha-icon>
-                  <span>Loading notifications...</span>
+                  <span>正在加载通知...</span>
                 </div>
               `
             : this._notificationsError
@@ -11207,7 +11207,7 @@ export class DwainsLayoutCard extends LitElement {
     const temperature = this._formatWeatherTemperature(weatherEntity);
     if (!temperature) return '';
 
-    return `${temperature} outside`;
+    return `${temperature} 室外`;
   }
 
   private _weatherDisplayEnabled(): boolean {
@@ -11238,8 +11238,8 @@ export class DwainsLayoutCard extends LitElement {
     const temperature = this._formatWeatherTemperature(weatherEntity);
     const condition = this._formatWeatherCondition(weatherEntity?.state);
 
-    if (temperature && condition) return `${temperature} outside, ${condition}`;
-    if (temperature) return `${temperature} outside`;
+    if (temperature && condition) return `${temperature} 室外, ${condition}`;
+    if (temperature) return `${temperature} 室外`;
     return condition || '室外天气';
   }
 
@@ -12504,8 +12504,8 @@ export class DwainsLayoutCard extends LitElement {
         ${lights.length ? html`
           <button
             class="area-quick-control light ${lightsActive ? 'active' : ''}"
-            title=${lightsActive ? `Turn all lights off (${activeLights}/${lights.length} on)` : `Turn all lights on (${lights.length})`}
-            aria-label=${lightsActive ? `Turn all lights off, ${activeLights} of ${lights.length} are on` : `Turn all lights on, ${lights.length} lights`}
+            title=${lightsActive ? `关闭所有灯光 (${activeLights}/${lights.length} 开)` : `打开所有灯光 (${lights.length})`}
+            aria-label=${lightsActive ? `关闭所有灯光，${activeLights}/${lights.length} 开` : `打开所有灯光，${lights.length} 个灯光`}
             @click=${() => this._toggleAreaLights(areaId)}
           >
             <span class="area-quick-main">
@@ -12518,8 +12518,8 @@ export class DwainsLayoutCard extends LitElement {
         ${switches.length ? html`
           <button
             class="area-quick-control switch ${switchesActive ? 'active' : ''}"
-            title=${switchesActive ? `Turn all switches off (${activeSwitches}/${switches.length} on)` : `Turn all switches on (${switches.length})`}
-            aria-label=${switchesActive ? `Turn all switches off, ${activeSwitches} of ${switches.length} are on` : `Turn all switches on, ${switches.length} switches`}
+            title=${switchesActive ? `关闭所有开关 (${activeSwitches}/${switches.length} 开)` : `打开所有开关 (${switches.length})`}
+            aria-label=${switchesActive ? `关闭所有开关，${activeSwitches}/${switches.length} 开` : `打开所有开关，${switches.length} 个开关`}
             @click=${() => this._toggleAreaSwitches(areaId)}
           >
             <span class="area-quick-main">
@@ -12532,8 +12532,8 @@ export class DwainsLayoutCard extends LitElement {
         ${covers.length ? html`
           <button
             class="area-quick-control cover ${coversOpen ? 'active' : ''}"
-            title=${coversOpen ? `Close all covers (${openCovers}/${covers.length} open)` : `Open all covers (${covers.length})`}
-            aria-label=${coversOpen ? `Close all covers, ${openCovers} of ${covers.length} are open` : `Open all covers, ${covers.length} covers`}
+            title=${coversOpen ? `关闭所有窗帘 (${openCovers}/${covers.length} 个打开)` : `打开所有窗帘 (${covers.length})`}
+            aria-label=${coversOpen ? `关闭所有窗帘，${covers.length}个中有${openCovers}个是打开的` : `打开所有窗帘，共${covers.length}个窗帘`}
             @click=${() => this._toggleAreaCovers(areaId, true)}
           >
             <span class="area-quick-main">
@@ -12906,11 +12906,11 @@ export class DwainsLayoutCard extends LitElement {
   }
 
   private _mobileGroupName(key: string): string {
-    if (key === 'light') return 'Lighting';
-    if (key === 'switch') return 'Switches';
-    if (key === 'cover') return 'Covers';
-    if (key === 'climate') return 'Climate Control';
-    if (key === 'motion') return 'Motion';
+    if (key === 'light') return '灯光';
+    if (key === 'switch') return '开关';
+    if (key === 'cover') return '窗帘';
+    if (key === 'climate') return '气候控制';
+    if (key === 'motion') return '运动';
     return getDomainName(this.hass, key);
   }
 
@@ -13516,7 +13516,7 @@ export class DwainsLayoutCard extends LitElement {
       result.unshift({
         domain: 'wattage',
         count: 0,
-        name: 'Power usage',
+        name: '房屋用电',
         value: totalWattage,
         icon: 'mdi:flash'
       });

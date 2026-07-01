@@ -991,8 +991,8 @@ export class DwainsDomainEntitiesDialog extends LitElement {
     if (domain === 'cover') {
       return html`
         <div class="domain-actions">
-          ${actionButton('Open all', 'mdi:arrow-up', 'open_cover')}
-          ${actionButton('Close all', 'mdi:arrow-down', 'close_cover')}
+          ${actionButton('全部打开', 'mdi:arrow-up', 'open_cover')}
+          ${actionButton('全部关闭', 'mdi:arrow-down', 'close_cover')}
         </div>
       `;
     }
